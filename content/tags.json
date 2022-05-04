@@ -1,0 +1,40 @@
+{
+    "default": "sobre.md",
+    "topics":
+    [
+        {
+            "title": "Sobre esta paǵina",
+            "file": "sobre.md",
+            "tags":
+            [
+                "sobre",
+                "ajuda"
+            ]
+        },
+        {
+            "title": "Falha no cadastro",
+            "file": "falha-cadastro.md",
+            "tags":
+            [
+                "cadastro",
+                "falha",
+                "novo",
+                "usuário",
+                "signup"
+            ]
+        },
+        {
+            "title": "Motorista rejeitou oferta",
+            "file": "motorista-rejeitou-oferta.md",
+            "tags":
+            [
+                "motorista",
+                "rejeitou",
+                "oferta",
+                "entrega",
+                "viagem",
+                "supertrip"
+            ]
+        }
+    ]
+}
