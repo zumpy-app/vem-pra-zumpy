@@ -1,10 +1,10 @@
 {
-    "default": "sobre.md",
+    "default": "topics/sobre.md",
     "topics":
     [
         {
             "title": "Sobre esta paǵina",
-            "file": "sobre.md",
+            "file": "topics/sobre.md",
             "tags":
             [
                 "sobre",
@@ -13,7 +13,7 @@
         },
         {
             "title": "Falha no cadastro",
-            "file": "falha-cadastro.md",
+            "file": "topics/falha-cadastro.md",
             "tags":
             [
                 "cadastro",
@@ -25,7 +25,7 @@
         },
         {
             "title": "Motorista rejeitou oferta",
-            "file": "motorista-rejeitou-oferta.md",
+            "file": "topics/motorista-rejeitou-oferta.md",
             "tags":
             [
                 "motorista",
