@@ -1,0 +1,114 @@
+.root {
+  width: 100vw;
+  height: 100vh;
+}
+
+.container {
+  padding: 0 10px;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  outline: none;
+  padding: 0;
+  font-size: 30px;
+  color: var(--white-color);
+  cursor: pointer;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  inset: 0 0 auto 0;
+  background-color: var(--zumpy-blue);
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  position: relative;
+  z-index: 10;
+  font-size: clamp(20px, 3vw, 25px);
+}
+
+.header__logo::before {
+  content: 'Central de Ajuda';
+  display: block;
+  font-weight: 500;
+  color: var(--white-color);
+}
+
+.header__logo img {
+  width: 45px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+}
+
+.nav__toggle-btn {
+  position: relative;
+  z-index: 10;
+}
+
+.nav__menu {
+  width: min(70vw, 300px);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  inset: 0 auto 0 -100%;
+  visibility: hidden;
+  transition: 500ms;
+  background-color: var(--zumpy-blue);
+}
+
+.nav__menu--display {
+  left: 0;
+  visibility: visible;
+}
+
+.nav__list {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 80px;
+}
+
+.nav__item {
+  width: 100%;
+  text-align: start;
+  cursor: pointer;
+}
+
+.nav__link {
+  width: 100%;
+  display: block;
+  padding: 15px;
+  font-size: 20px;
+  color: var(--white-color);
+}
+
+.nav__link:hover,
+.nav__link--current {
+  background-color: var(--dark-white);
+  color: var(--zumpy-blue);
+}
+
+.content {
+  height: 100vh;
+  padding-top: 80px;
+  background-color: var(--dark-white);
+}

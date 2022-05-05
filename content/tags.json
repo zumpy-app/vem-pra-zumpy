@@ -1,40 +1,27 @@
 {
-    "default": "topics/sobre.md",
-    "topics":
-    [
-        {
-            "title": "Sobre esta paǵina",
-            "file": "topics/sobre.md",
-            "tags":
-            [
-                "sobre",
-                "ajuda"
-            ]
-        },
-        {
-            "title": "Falha no cadastro",
-            "file": "topics/falha-cadastro.md",
-            "tags":
-            [
-                "cadastro",
-                "falha",
-                "novo",
-                "usuário",
-                "signup"
-            ]
-        },
-        {
-            "title": "Motorista rejeitou oferta",
-            "file": "topics/motorista-rejeitou-oferta.md",
-            "tags":
-            [
-                "motorista",
-                "rejeitou",
-                "oferta",
-                "entrega",
-                "viagem",
-                "supertrip"
-            ]
-        }
-    ]
+  "default": "topics/sobre.md",
+  "topics": [
+    {
+      "title": "Sobre esta paǵina",
+      "file": "topics/sobre.md",
+      "tags": ["sobre", "ajuda"]
+    },
+    {
+      "title": "Falha no cadastro",
+      "file": "topics/falha-cadastro.md",
+      "tags": ["cadastro", "falha", "novo", "usuário", "signup"]
+    },
+    {
+      "title": "Motorista rejeitou oferta",
+      "file": "topics/motorista-rejeitou-oferta.md",
+      "tags": [
+        "motorista",
+        "rejeitou",
+        "oferta",
+        "entrega",
+        "viagem",
+        "supertrip"
+      ]
+    }
+  ]
 }
