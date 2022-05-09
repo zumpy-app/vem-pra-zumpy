@@ -7,10 +7,65 @@
   --dark-white: #f8f8f8;
   --dark-gray: #383838;
   --light-gray: #535353;
+  --translucent-gray: rgba(228, 230, 235, 0.25);
+
+  --tiny-font-weight: 100;
+  --small-font-weight: 200;
+  --medium-font-weight: 300;
+  --big-font-weight: 400;
+  --large-font-weight: 500;
+  --huge-font-weight: 600;
+
+  --tiny-font-size: 0.8rem;
+  --small-font-size: 1rem;
+  --medium-font-size: 1.2rem;
+  --big-font-size: 1.6rem;
+  --large-font-size: 2rem;
+  --extra-large-font-size: 2.4rem;
+  --huge-font-size: 3.2rem;
+
+  --main-border-radius: 8px;
+  --round-border-radius: 50%;
+
+  --tiny-margin: 8px;
+  --small-margin: 12px;
+  --medium-margin: 16px;
+  --big-margin: 24px;
+  --large-margin: 32px;
+  --huge-margin: 40px;
+
+  --tiny-padding: 8px;
+  --small-padding: 12px;
+  --medium-padding: 16px;
+  --big-padding: 24px;
+  --large-padding: 32px;
+  --huge-padding: 40px;
+
+  --tiny-gap: 8px;
+  --small-gap: 12px;
+  --medium-gap: 16px;
+  --big-gap: 24px;
+  --large-gap: 32px;
+  --huge-gap: 40px;
 }
 
 html {
   font-size: 62.5%;
   font-family: 'Ubuntu', sans-serif;
   scroll-behavior: smooth;
+}
+
+::selection {
+  background-color: var(--zumpy-blue);
+  color: var(--dark-white);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background-color: var(--dark-white);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--light-gray);
+  border-radius: 0.2rem;
 }

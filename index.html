@@ -17,17 +17,22 @@
       rel="stylesheet"
       href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
     />
-    <title>Zumpy - Ajuda</title>
+    <title>Zumpy - Central de Ajuda</title>
   </head>
   <body>
     <main class="root">
       <header class="header container">
         <nav class="nav">
-          <button class="nav__toggle-btn icon-btn" data-js="toggle-mobile-menu-btn">
-            <i class="uil uil-bars" data-js="mobile-menu-icon"></i>
-          </button>
+          <div class="mobile-buttons">
+            <button class="icon-btn" data-js="toggle-mobile-menu-btn">
+              <i class="uil uil-bars" data-js="mobile-menu-icon"></i>
+            </button>
+            <button class="icon-btn" data-js="toggle-search-bar">
+              <i class="uil uil-search"></i>
+            </button>
+          </div>
 
-          <div class="nav__menu nav__menu--display" data-js="nav-menu">
+          <div class="nav__menu" data-js="nav-menu">
             <ul class="nav__list" data-js="nav-links-list">
               <li class="nav__item">
                 <a href="#" class="nav__link nav__link--current">Sobre</a>
@@ -40,15 +45,44 @@
               </li>
             </ul>
           </div>
-        </nav>
 
+          
+          <form class="nav__search" data-js="search-form">
+            <label class="sr-only" for="search-topic-inpt"
+              >Pesquisar artigos de ajuda</label
+            >
+            <input
+              type="text"
+              id="search-topic-inpt"
+              name="searchTopic"
+              class="search__inpt"
+              placeholder="Pesquisar topico"
+              data-js="search-topic-inpt"
+            />
+            <button type="submit" class="search__btn">
+              <i class="uil uil-search"></i>
+            </button>
+          </form>
+        </nav>
         <h1 class="header__logo">
-          <img src="src/img/zumpy-symbol.svg" alt="Zumpy logo"/>
+          <img src="src/img/zumpy-symbol.svg" alt="Zumpy logo" />
         </h1>
       </header>
 
       <section class="content container">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, facere? Iure atque molestias natus tenetur! Architecto molestiae ullam necessitatibus eligendi. Porro suscipit quibusdam atque voluptatem ullam consequatur, necessitatibus nostrum voluptas.
+        <h3>Lorem ipsum</h3>
+        <br>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus,
+        facere? Iure atque molestias natus tenetur! Architecto molestiae ullam
+        necessitatibus eligendi. Porro suscipit quibusdam atque voluptatem ullam
+        consequatur, necessitatibus nostrum voluptas.
+        <br>
+        <ul>
+          <li>Item</li>
+          <li>Item</li>
+          <li>Item</li>
+          <li>Item</li>
+        </ul>
       </section>
     </main>
 

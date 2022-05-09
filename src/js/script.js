@@ -45,3 +45,31 @@ allPageNavLinks.forEach((link) => {
   });
 });
 
+const toggleSearchBarBtn = document.querySelector(
+  '[data-js="toggle-search-bar"]'
+);
+
+const searchTopicForm = document.querySelector('[data-js="search-form"]');
+const input = searchTopicForm.querySelector('input');
+
+const toggleSearchBar = () => {
+  searchTopicForm.classList.toggle('nav__search--display');
+
+  if (searchTopicForm.classList.contains('nav__search--display')) {
+    input.focus();
+  }
+};
+
+toggleSearchBarBtn.addEventListener('click', toggleSearchBar);
+
+const searchTopic = (topic) => {
+  console.log(topic);
+};
+
+searchTopicForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const topic = input.value;
+  searchTopic(topic);
+  topic.value = '';
+
+});
