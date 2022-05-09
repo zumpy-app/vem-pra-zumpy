@@ -151,7 +151,7 @@
   border: solid 1px var(--light-gray);
 }
 
-.search__inpt:focus .nav__search {
+.search__inpt:focus {
   border-color: orange;
 }
 
