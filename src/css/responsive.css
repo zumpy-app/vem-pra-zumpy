@@ -38,6 +38,10 @@
     visibility: visible;
   }
 
+  .nav__list {
+    margin-top: 80px;
+  }
+
   .nav__search {
     width: auto;
     position: static;

@@ -15,14 +15,14 @@ const displayTopic = (path) => {
 
   const filePath = `/content/${path}`;
 
-  const linkTag = createDOMElement('link', {
+  const styleTag = createDOMElement('link', {
     rel: 'stylesheet',
     href: '/src/css/markdown-styles.css',
   });
   const templateTag = createDOMElement('template', {});
   const content = createDOMElement('zero-md', { src: filePath });
 
-  templateTag.appendChild(linkTag);
+  templateTag.appendChild(styleTag);
   content.appendChild(templateTag);
 
   topicContainer.innerText = '';
@@ -50,6 +50,7 @@ const findTopics = async (inputValue) => {
 
   const helpTopics = data.topics;
   const userSearchWords = inputValue.split(/[ ]+/);
+  
   let topicToDisplay = null;
 
   for (const topic of helpTopics) {
@@ -64,7 +65,14 @@ const findTopics = async (inputValue) => {
     return;
   }
 
-  displayTopic(topicToDisplay.file);
+  const topicToDisplayPath = topicToDisplay.file
+  const buttonID = topicToDisplayPath.substring(
+    topicToDisplayPath.indexOf('/') + 1,
+    topicToDisplayPath.indexOf('.')
+  );
+
+  displayTopic(topicToDisplayPath);
+  currentNavLink(document.querySelector(`#${buttonID}`));
 };
 
 // [NAV MENU]===================================================================
