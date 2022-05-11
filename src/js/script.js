@@ -1,5 +1,6 @@
+// Nav Menu
 const navMenu = document.querySelector('[data-js="nav-menu"]');
-const navLinksList = document.querySelector('[data-js="nav-links-list"]');
+const allPageNavLinks = document.querySelectorAll('.nav__link');
 const toggleMobileMenuBtn = document.querySelector(
   '[data-js="toggle-mobile-menu-btn"]'
 );
@@ -16,20 +17,6 @@ const toggleMobileMenu = () => {
 
 toggleMobileMenuBtn.addEventListener('click', toggleMobileMenu);
 
-const closeMobileMenuOnLinkClick = (event) => {
-  const menuElement = event.target;
-
-  if (
-    menuElement.classList.contains('nav__link') &&
-    navMenu.classList.contains('nav__menu--display')
-  )
-    toggleMobileMenu();
-};
-
-navLinksList.addEventListener('click', closeMobileMenuOnLinkClick);
-
-const allPageNavLinks = document.querySelectorAll('.nav__link');
-
 const currentNavLink = (link) => {
   allPageNavLinks.forEach((element) => {
     element.classList.remove('nav__link--current');
@@ -41,35 +28,96 @@ const currentNavLink = (link) => {
 allPageNavLinks.forEach((link) => {
   link.addEventListener('click', (event) => {
     const element = event.target;
+
     currentNavLink(element);
+    toggleMobileMenu();
   });
 });
 
-const toggleSearchBarBtn = document.querySelector(
-  '[data-js="toggle-search-bar"]'
-);
+// Search topic
+const tagsURL = './content/tags.json';
+const topicsURL = './content/topics';
 
-const searchTopicForm = document.querySelector('[data-js="search-form"]');
-const input = searchTopicForm.querySelector('input');
+const displayTopic = (filePath) => {
+  const topicContainer = document.querySelector('[data-js="topics-container"]');
 
-const toggleSearchBar = () => {
-  searchTopicForm.classList.toggle('nav__search--display');
+  // Usar zero-md aqui
+  topicContainer.innerText = filePath;
+};
 
-  if (searchTopicForm.classList.contains('nav__search--display')) {
-    input.focus();
+const checkTopic = (tags, words) => {
+  for (const word of words) {
+    if (!tags.includes(word)) {
+      return false;
+    }
   }
+
+  return true;
+};
+
+const findTopics = async (inputValue) => {
+  const response = await fetch(tagsURL);
+  const data = await response.json();
+
+  if (inputValue === 'default') {
+    displayTopic(data.default);
+    return;
+  }
+
+  const helpTopics = data.topics;
+  const userSearchWords = inputValue.split(/[ ]+/);
+  let topicToDisplay = null;
+
+  for (const topic of helpTopics) {
+    const topicoBate = checkTopic(topic.tags, userSearchWords);
+
+    if (!topicoBate) continue;
+    topicToDisplay = topic;
+  }
+
+  if (!topicToDisplay) {
+    displayTopic('oops'); // not-found.md
+    return;
+  }
+
+  displayTopic(topicToDisplay.file);
+};
+
+// Search Topic Form
+const searchForm = document.forms.searchForm;
+const searchTopicInpt = searchForm.searchTopicInpt;
+
+const toggleSearchBarBtn = document.querySelector(
+  '[data-js="toggle-search-bar-btn"]'
+  );
+  
+  const toggleSearchBar = () => {
+    searchForm.classList.toggle('nav__search--display');
+    
+  if (navMenu.classList.contains('nav__menu--display')) toggleMobileMenu();
 };
 
 toggleSearchBarBtn.addEventListener('click', toggleSearchBar);
 
-const searchTopic = (topic) => {
-  console.log(topic);
-};
-
-searchTopicForm.addEventListener('submit', (event) => {
+searchForm.addEventListener('submit', (event) => {
   event.preventDefault();
-  const topic = input.value;
-  searchTopic(topic);
-  topic.value = '';
+  
+  let inputValue = searchTopicInpt.value;
+  if (inputValue) findTopics(inputValue.toLowerCase());
 
+  toggleSearchBar();
+  searchTopicInpt.value = '';
 });
+
+window.addEventListener('load', () => {
+  findTopics('default');
+});
+
+/*
+Quando a pagina carregar, chamar direto a função de display com o 
+para exibir o sobre toda vez que abrir o site
+
+se nao encontrar topico, exibir tela de topico nao encontrado com um "ooops"
+e um svg triste
+enviar ideia de topico, sla
+*/

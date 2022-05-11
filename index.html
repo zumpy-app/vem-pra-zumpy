@@ -27,7 +27,7 @@
             <button class="icon-btn" data-js="toggle-mobile-menu-btn">
               <i class="uil uil-bars" data-js="mobile-menu-icon"></i>
             </button>
-            <button class="icon-btn" data-js="toggle-search-bar">
+            <button class="icon-btn" data-js="toggle-search-bar-btn">
               <i class="uil uil-search"></i>
             </button>
           </div>
@@ -46,15 +46,13 @@
             </ul>
           </div>
 
-          
-          <form class="nav__search" data-js="search-form">
+          <form class="nav__search" data-js="search-form" name="searchForm">
             <label class="sr-only" for="search-topic-inpt"
               >Pesquisar artigos de ajuda</label
             >
             <input
               type="text"
-              id="search-topic-inpt"
-              name="searchTopic"
+              name="searchTopicInpt"
               class="search__inpt"
               placeholder="Pesquisar topico"
               data-js="search-topic-inpt"
@@ -69,23 +67,10 @@
         </h1>
       </header>
 
-      <section class="content container">
-        <h3>Lorem ipsum</h3>
-        <br>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus,
-        facere? Iure atque molestias natus tenetur! Architecto molestiae ullam
-        necessitatibus eligendi. Porro suscipit quibusdam atque voluptatem ullam
-        consequatur, necessitatibus nostrum voluptas.
-        <br>
-        <ul>
-          <li>Item</li>
-          <li>Item</li>
-          <li>Item</li>
-          <li>Item</li>
-        </ul>
+      <section class="content container" data-js="topics-container">
+
       </section>
     </main>
-
     <script src="src/js/script.js"></script>
   </body>
 </html>
