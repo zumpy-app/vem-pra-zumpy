@@ -50,7 +50,7 @@ const findTopics = async (inputValue) => {
 
   const helpTopics = data.topics;
   const userSearchWords = inputValue.split(/[ ]+/);
-  
+
   let topicToDisplay = null;
 
   for (const topic of helpTopics) {
@@ -65,14 +65,15 @@ const findTopics = async (inputValue) => {
     return;
   }
 
-  const topicToDisplayPath = topicToDisplay.file
-  const buttonID = topicToDisplayPath.substring(
+  const topicToDisplayPath = topicToDisplay.file;
+  const currentButtonID = topicToDisplayPath.substring(
     topicToDisplayPath.indexOf('/') + 1,
     topicToDisplayPath.indexOf('.')
   );
+  const currentButton = document.querySelector(`#${currentButtonID}`)
 
   displayTopic(topicToDisplayPath);
-  currentNavLink(document.querySelector(`#${buttonID}`));
+  currentNavLink(currentButton);
 };
 
 // [NAV MENU]===================================================================

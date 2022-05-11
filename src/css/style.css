@@ -83,6 +83,7 @@
   justify-content: center;
   position: fixed;
   inset: auto auto 0 -100%;
+  padding-right: var(--tiny-padding);
   visibility: hidden;
   transition: 500ms;
   background-color: var(--zumpy-blue);
@@ -152,15 +153,17 @@
 .search__inpt,
 .search__btn {
   outline: none;
-  border: solid 1px var(--light-gray);
+  border: solid 1px var(--white-color);
 }
 
 .search__inpt:focus {
-  border-color: orange;
+  border-color: var(--zumpy-dark-blue);
 }
 
 .search__btn:hover {
-  background-color: orange;
+  background-color: var(--zumpy-dark-blue);
+  color: var(--white-color);
+  border-color: transparent;
 }
 
 .nav__search {
