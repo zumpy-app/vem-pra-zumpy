@@ -106,16 +106,18 @@
 
 .nav__item {
   width: 100%;
-  text-align: start;
-  cursor: pointer;
 }
 
 .nav__link {
   width: 100%;
-  display: block;
   padding: var(--medium-padding);
+  border: none;
+  outline: none;
   font-size: var(--large-font-size);
   color: var(--white-color);
+  cursor: pointer;
+  background: none;
+  text-align: start;
 }
 
 .nav__link:hover {

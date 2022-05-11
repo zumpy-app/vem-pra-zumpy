@@ -1,48 +1,32 @@
-// Nav Menu
-const navMenu = document.querySelector('[data-js="nav-menu"]');
-const allPageNavLinks = document.querySelectorAll('.nav__link');
-const toggleMobileMenuBtn = document.querySelector(
-  '[data-js="toggle-mobile-menu-btn"]'
-);
+// [SEARCH TOPIC FILE]==========================================================
+const createDOMElement = (elementTag, attributes) => {
+  const element = document.createElement(elementTag);
+  const attributesArray = Object.entries(attributes);
 
-const toggleMobileMenu = () => {
-  const mobileMenuIcon = document.querySelector('[data-js="mobile-menu-icon"]');
-
-  navMenu.classList.toggle('nav__menu--display');
-
-  navMenu.classList.contains('nav__menu--display')
-    ? (mobileMenuIcon.classList = 'uil uil-multiply')
-    : (mobileMenuIcon.classList = 'uil uil-bars');
-};
-
-toggleMobileMenuBtn.addEventListener('click', toggleMobileMenu);
-
-const currentNavLink = (link) => {
-  allPageNavLinks.forEach((element) => {
-    element.classList.remove('nav__link--current');
+  attributesArray.forEach(([key, value]) => {
+    element.setAttribute(key, value);
   });
 
-  link.classList.add('nav__link--current');
+  return element;
 };
 
-allPageNavLinks.forEach((link) => {
-  link.addEventListener('click', (event) => {
-    const element = event.target;
-
-    currentNavLink(element);
-    toggleMobileMenu();
-  });
-});
-
-// Search topic
-const tagsURL = './content/tags.json';
-const topicsURL = './content/topics';
-
-const displayTopic = (filePath) => {
+const displayTopic = (path) => {
   const topicContainer = document.querySelector('[data-js="topics-container"]');
 
-  // Usar zero-md aqui
-  topicContainer.innerText = filePath;
+  const filePath = `/content/${path}`;
+
+  const linkTag = createDOMElement('link', {
+    rel: 'stylesheet',
+    href: '/src/css/markdown-styles.css',
+  });
+  const templateTag = createDOMElement('template', {});
+  const content = createDOMElement('zero-md', { src: filePath });
+
+  templateTag.appendChild(linkTag);
+  content.appendChild(templateTag);
+
+  topicContainer.innerText = '';
+  topicContainer.appendChild(content);
 };
 
 const checkTopic = (tags, words) => {
@@ -56,7 +40,7 @@ const checkTopic = (tags, words) => {
 };
 
 const findTopics = async (inputValue) => {
-  const response = await fetch(tagsURL);
+  const response = await fetch('./content/tags.json');
   const data = await response.json();
 
   if (inputValue === 'default') {
@@ -76,24 +60,62 @@ const findTopics = async (inputValue) => {
   }
 
   if (!topicToDisplay) {
-    displayTopic('oops'); // not-found.md
+    displayTopic('topics/not-found.md');
     return;
   }
 
   displayTopic(topicToDisplay.file);
 };
 
-// Search Topic Form
+// [NAV MENU]===================================================================
+const navMenu = document.querySelector('[data-js="nav-menu"]');
+const allPageNavLinks = document.querySelectorAll('.nav__link');
+const toggleMobileMenuBtn = document.querySelector(
+  '[data-js="toggle-mobile-menu-btn"]'
+);
+
+const toggleMobileMenu = () => {
+  const mobileMenuIcon = document.querySelector('[data-js="mobile-menu-icon"]');
+  navMenu.classList.toggle('nav__menu--display');
+
+  navMenu.classList.contains('nav__menu--display')
+    ? (mobileMenuIcon.classList = 'uil uil-multiply')
+    : (mobileMenuIcon.classList = 'uil uil-bars');
+};
+
+toggleMobileMenuBtn.addEventListener('click', toggleMobileMenu);
+
+const currentNavLink = (navLink) => {
+  allPageNavLinks.forEach((link) => {
+    link.classList.remove('nav__link--current');
+  });
+
+  navLink.classList.add('nav__link--current');
+};
+
+allPageNavLinks.forEach((link) => {
+  link.addEventListener('click', (event) => {
+    const currentLink = event.target;
+
+    currentNavLink(currentLink);
+    toggleMobileMenu();
+
+    const linkID = currentLink.id;
+    displayTopic(`topics/${linkID}.md`);
+  });
+});
+
+// [SEARCH TOPIC FORM]==========================================================
 const searchForm = document.forms.searchForm;
 const searchTopicInpt = searchForm.searchTopicInpt;
 
 const toggleSearchBarBtn = document.querySelector(
   '[data-js="toggle-search-bar-btn"]'
-  );
-  
-  const toggleSearchBar = () => {
-    searchForm.classList.toggle('nav__search--display');
-    
+);
+
+const toggleSearchBar = () => {
+  searchForm.classList.toggle('nav__search--display');
+
   if (navMenu.classList.contains('nav__menu--display')) toggleMobileMenu();
 };
 
@@ -101,7 +123,7 @@ toggleSearchBarBtn.addEventListener('click', toggleSearchBar);
 
 searchForm.addEventListener('submit', (event) => {
   event.preventDefault();
-  
+
   let inputValue = searchTopicInpt.value;
   if (inputValue) findTopics(inputValue.toLowerCase());
 
@@ -112,12 +134,3 @@ searchForm.addEventListener('submit', (event) => {
 window.addEventListener('load', () => {
   findTopics('default');
 });
-
-/*
-Quando a pagina carregar, chamar direto a função de display com o 
-para exibir o sobre toda vez que abrir o site
-
-se nao encontrar topico, exibir tela de topico nao encontrado com um "ooops"
-e um svg triste
-enviar ideia de topico, sla
-*/
