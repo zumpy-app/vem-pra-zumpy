@@ -30,7 +30,7 @@
 }
 
 .icon-btn:hover {
-  color: var(--zumpy-dark-blue);
+  color: var(--dark-zumpy-blue);
 }
 
 .icon-btn--large {
@@ -108,6 +108,7 @@
   height: 100%;
   width: 100%;
   display: flex;
+  gap: var(--tiny-gap);
   flex-direction: column;
   align-items: center;
   overflow-y: auto;
@@ -170,11 +171,11 @@
 }
 
 .search__inpt:focus {
-  border-color: var(--zumpy-dark-blue);
+  border-color: var(--dark-zumpy-blue-blue);
 }
 
 .search__btn:hover {
-  background-color: var(--zumpy-dark-blue);
+  background-color: var(--dark-zumpy-blue);
   color: var(--white-color);
   border-color: transparent;
 }

@@ -70,7 +70,7 @@ const findTopics = async (inputValue) => {
     topicToDisplayPath.indexOf('/') + 1,
     topicToDisplayPath.indexOf('.')
   );
-  const currentButton = document.querySelector(`#${currentButtonID}`)
+  const currentButton = document.querySelector(`#${currentButtonID}`);
 
   displayTopic(topicToDisplayPath);
   currentNavLink(currentButton);
