@@ -6,7 +6,7 @@ import "./styles/global.scss";
 function App() {
   const [selectedTopic, setSelectedTopic] = useState("");
   const [filteredTopics, setfilteredTopics] = useState(tags.topics);
-  const [selectedButton, setSelectedButton] = useState(0);
+  const [selectedButton, setSelectedButton] = useState("Sobre esta paǵina");
 
   const getReadmeData = (src: string, payload: (text: string) => void) => {
     fetch(
@@ -52,10 +52,10 @@ function App() {
             return (
               <div key={index}>
                 <button
-                  className={selectedButton === index ? "selected" : ""}
+                  className={selectedButton === topic.title ? "selected" : ""}
                   onClick={() => {
                     getReadmeData(topic.file, setSelectedTopic);
-                    setSelectedButton(index);
+                    setSelectedButton(topic.title);
                   }}
                 >
                   {topic.title}
