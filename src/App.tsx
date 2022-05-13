@@ -6,6 +6,7 @@ import "./styles/global.scss";
 function App() {
   const [selectedTopic, setSelectedTopic] = useState("");
   const [filteredTopics, setfilteredTopics] = useState(tags.topics);
+  const [selectedButton, setSelectedButton] = useState(0);
 
   const getReadmeData = (src: string, payload: (text: string) => void) => {
     fetch(
@@ -23,7 +24,7 @@ function App() {
       setfilteredTopics(tags.topics);
     } else {
       setfilteredTopics(
-        tags.topics.filter((topic) => topic.tags.includes(search))
+        tags.topics.filter((topic) => topic.tags.includes(search.toLowerCase()))
       );
     }
   };
@@ -51,8 +52,10 @@ function App() {
             return (
               <div key={index}>
                 <button
+                  className={selectedButton === index ? "selected" : ""}
                   onClick={() => {
                     getReadmeData(topic.file, setSelectedTopic);
+                    setSelectedButton(index);
                   }}
                 >
                   {topic.title}

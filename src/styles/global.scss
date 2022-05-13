@@ -13,7 +13,7 @@
     align-items: center;
 
     flex: 1;
-    border-right: 1px solid #222;
+    border-right: 1px solid #888;
     padding: 16px;
 
     .search {
@@ -40,7 +40,11 @@
       cursor: pointer;
       transition: all 0.2s linear;
       &:hover {
-        background: #ddd;
+        background: #aaa;
+      }
+      &.selected {
+        background: #222;
+        color: #fff;
       }
     }
   }
@@ -53,5 +57,14 @@
     padding: 16px;
 
     flex: 2;
+
+    h2 {
+      font-size: 24px;
+      margin-bottom: 16px;
+    }
+
+    p {
+      margin-bottom: 8px;
+    }
   }
 }
