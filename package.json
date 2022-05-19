@@ -1,0 +1,24 @@
+{
+  "name": "vem-pra-zumpy",
+  "version": "1.0.0",
+  "description": "Repositório para avaliação técnica de candidatos",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eoisaac/vem-pra-zumpy.git"
+  },
+  "keywords": [],
+  "author": "isaac-santiago",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eoisaac/vem-pra-zumpy/issues"
+  },
+  "homepage": "https://github.com/eoisaac/vem-pra-zumpy#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
