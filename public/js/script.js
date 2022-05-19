@@ -17,7 +17,7 @@ const displayTopic = (path) => {
 
   const styleTag = createDOMElement('link', {
     rel: 'stylesheet',
-    href: '/src/css/markdown-styles.css',
+    href: '/css/markdown-styles.css',
   });
   const templateTag = createDOMElement('template', {});
   const content = createDOMElement('zero-md', { src: filePath });
