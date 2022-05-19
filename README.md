@@ -8,9 +8,16 @@ Repositório para avaliação técnica de candidatos
 ```
 https://github.com/eoisaac/vem-pra-zumpy.git
 ```
-2 - Após o download do repositório, instale a extensão [Web Server](https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb/related?hl=en) para o Google Chrome;
+2 - No diretório do projeto, execute o comando:
 
-![instalando extensão](src/img/readme/install-web-server.png)
+```
+npm install
+```
 
-3 - Execute a extensão, selecione o local onde o repositório foi baixado e em seguida clique na URL.
-![Executando a extensão](src/img/readme/running-extension.png)
+3 - Em seguida execute o comando: 
+
+```
+npm run start
+```
+
+4 - No navegador, acesse a URL: **localhost:8080**
